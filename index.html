@@ -13,7 +13,7 @@
 :root{
   --bg:#EADFB8; --paper:#F8F2DC; --ink:#2A281F; --mut:#6B6450; --line:#D8CB9C;
   --ocre:#94711A; --mapop:.13; --lago:#2C6E8F; --iso:rgba(90,75,30,.22);
-  --verde:#2F7D4A; --verdebg:#E1EDD3; --amb:#B07A10; --ambbg:#F6E3B4;
+  --verde:#2F7D4A; --verdebg:#E1EDD3; --amb:#B07A10; --ambbg:#F6E3B4; --az:#2C6E8F; --azbg:#DCE9EF; --rojo:#B03A2E;
   --fd:"Bricolage Grotesque","Arial Narrow",sans-serif;
   --fb:"Figtree",system-ui,sans-serif;
   --fm:"JetBrains Mono",ui-monospace,monospace;
@@ -21,11 +21,11 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#1C1A12; --paper:#27241A; --ink:#EEE6CC; --mut:#ABA284; --line:#3D3826;
   --ocre:#D8B75A; --mapop:.10; --lago:#7DB9D8; --iso:rgba(216,183,90,.16);
-  --verde:#7CC793; --verdebg:#1F2E20; --amb:#E5B655; --ambbg:#3A2F14; color-scheme:dark}}
+  --verde:#7CC793; --verdebg:#1F2E20; --amb:#E5B655; --ambbg:#3A2F14; --az:#7DB9D8; --azbg:#1B2B33; --rojo:#E8796C; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#1C1A12; --paper:#27241A; --ink:#EEE6CC; --mut:#ABA284; --line:#3D3826;
   --ocre:#D8B75A; --mapop:.10; --lago:#7DB9D8; --iso:rgba(216,183,90,.16);
-  --verde:#7CC793; --verdebg:#1F2E20; --amb:#E5B655; --ambbg:#3A2F14; color-scheme:dark}
+  --verde:#7CC793; --verdebg:#1F2E20; --amb:#E5B655; --ambbg:#3A2F14; --az:#7DB9D8; --azbg:#1B2B33; --rojo:#E8796C; color-scheme:dark}
 html{background:var(--bg)}
 body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--fb);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
@@ -76,6 +76,15 @@ ul{margin:0;padding-left:20px;display:grid;gap:6px}
 .salida:hover,.salida:focus-visible{border-color:var(--ocre);outline:none}
 .salida h3{font:900 1.6rem/1 "Big Shoulders Display","Arial Narrow",sans-serif;text-transform:uppercase;margin:0 0 4px}
 .salida p{margin:0;color:var(--mut);font-size:.92rem}
+.s.z{background:var(--azbg);border-color:var(--az)} .s.z b{color:var(--az)}
+.leyenda{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:560px){.leyenda{grid-template-columns:1fr}}
+.l{display:flex;gap:10px;align-items:flex-start}
+.l b{font:800 1rem var(--fd)} .l p{margin:2px 0 0;font-size:.9rem;color:var(--mut)}
+.pt{flex:0 0 18px;height:18px;border-radius:50%;margin-top:3px}
+.l.v .pt{background:var(--verde)} .l.z .pt{background:var(--az)} .l.r .pt{background:var(--rojo)}
+.l.v b{color:var(--verde)} .l.z b{color:var(--az)} .l.r b{color:var(--rojo)}
+
 .pill{flex:0 0 auto;font:600 .8rem var(--fb);padding:4px 10px;border-radius:99px;background:var(--verdebg);color:var(--verde);border:1px solid var(--verde)}
 </style>
 </head>
@@ -92,9 +101,17 @@ ul{margin:0;padding-left:20px;display:grid;gap:6px}
   </header>
   <section class="lista">
     <a class="salida" href="valle-del-manso/">
-      <div><h3>Valle del Manso</h3><p>Manso Inferior · domingo 8 de noviembre · bici + trek</p></div>
+      <div><h3>Valle del Manso</h3><p>Manso Inferior · acampe sáb 7 + bici y trek dom 8 de noviembre</p></div>
       <span class="pill">Verde</span>
     </a>
+  </section>
+  <section class="box ley">
+    <h2>Cómo leer el semáforo</h2>
+    <div class="leyenda">
+      <div class="l v"><span class="pt"></span><div><b>Verde</b><p>Buen clima. Salida recomendada.</p></div></div>
+      <div class="l z"><span class="pt"></span><div><b>Azul</b><p>Más o menos. Se puede, con precauciones.</p></div></div>
+      <div class="l r"><span class="pt"></span><div><b>Rojo</b><p>Complicado. No recomendable.</p></div></div>
+    </div>
   </section>
   <p class="foot">Los reportes se actualizan antes de cada salida.</p>
 </main>
