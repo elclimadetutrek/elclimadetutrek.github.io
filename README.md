@@ -1,2 +1,3 @@
-# elclimadetutrek.github.io
-Anticipa, para que tu salida no te sorprenda 
+# Clima TANU
+
+Pronósticos de clima de montaña para salidas en la Comarca Andina y Bariloche.
